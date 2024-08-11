@@ -35,16 +35,12 @@ class Solution {
         return true;
 
     }
-    public ListNode reverse(ListNode mid){
-        ListNode temp = mid;
-        ListNode prev = null;
-        ListNode front = mid;
-        while(temp!=null){
-            front = temp.next;
-            temp.next = prev;
-            prev = temp;
-            temp = front;
-        }
-        return prev;
+    public ListNode reverse(ListNode head){
+        if(head==null || head.next == null) return head;
+        ListNode newHead = reverse(head.next);
+        ListNode front = head.next;
+        front.next = head;
+        head.next = null;
+        return newHead;
     }
 }
