@@ -22,15 +22,16 @@ class Solution {
             return head;
         }
         temp = head;
-        while(rem!=1){
-            temp = temp.next;
+        while(temp!=null){
             rem--;
+            if(rem==0){
+                break;
+            }
+            temp = temp.next;
         }
-        if(temp.next!=null){
-            temp.next = temp.next.next;
-            return head;
-        }
-        temp.next=null;
+        ListNode delNode = temp;
+        temp.next = temp.next.next;
+        delNode = null;
         return head;
     }
 }
