@@ -46,10 +46,8 @@ class Solution {
         }
         if(list1!=null){
             temp.next = list1;
-            temp = temp.next;
         }else{
             temp.next = list2;
-            temp = temp.next;
         }
         return dummy.next;
     }
