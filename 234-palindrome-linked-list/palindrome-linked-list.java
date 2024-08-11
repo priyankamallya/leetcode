@@ -26,7 +26,6 @@ class Solution {
         ListNode temp1 = head;
         while(temp2!=null){
             if(temp1.val!=temp2.val){
-                reverse(newHead);
                 return false;
             }
             temp1 = temp1.next;
