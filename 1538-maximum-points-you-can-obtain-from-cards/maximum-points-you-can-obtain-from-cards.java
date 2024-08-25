@@ -8,8 +8,8 @@ class Solution {
         for(int i=0;i<k;i++){
             lsum+=cardPoints[i];
         }
-        if(n==k) return lsum;
         int totalSum = lsum;
+        if(n==k) return totalSum;
         while(l>=0){
             lsum = lsum-cardPoints[l];
             l--;
