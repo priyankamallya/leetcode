@@ -3,7 +3,7 @@ class Solution {
         if(divisor ==1 ) return dividend;
         if(dividend==divisor) return 1;
         long ans = 0;
-        long sign = 1;
+        int sign = 1;
         if((dividend>=0 && divisor<0) || (dividend <0 && divisor>=0))
             sign = -1;
         long n = Math.abs((long)dividend);
