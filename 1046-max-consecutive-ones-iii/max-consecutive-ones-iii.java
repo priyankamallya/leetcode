@@ -6,19 +6,16 @@ class Solution {
         int r=0;
         int zeros=0;
         while(r<n){
-            if(nums[r]==0){
-                zeros++;
-                if(zeros>k){
-                    while(nums[l]!=0){
-                        l++;
-                    }
+            if(nums[r]==0) zeros++;
+            if(zeros>k){
+                if(nums[l]==0) zeros--;
                     l++;
-                    zeros--;
-                }
             }
+            if(zeros<=k){
                 int len = r-l+1;
                 maxLen = Math.max(maxLen,len);
-                r++;
+            }
+            r++;
         }
         return maxLen;
     }
