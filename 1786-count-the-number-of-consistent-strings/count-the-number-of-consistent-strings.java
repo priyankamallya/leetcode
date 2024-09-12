@@ -1,17 +1,17 @@
 class Solution {
     public int countConsistentStrings(String allowed, String[] words) {
         int[] hash = new int[26];
-        int count=0;
+        int count=words.length;
         for(char c : allowed.toCharArray()){
             hash[c-'a']++;
         }
         for(String str : words){
-            boolean flag = true;
-            for(int i=0;i<str.length();i++){
-                char c = str.charAt(i);
-                if(hash[c-'a']==0) flag = false;
+            for(char c: str.toCharArray()){
+                if(hash[c-'a']==0){
+                    count--;
+                    break;
+                }
             }
-            if(flag == true) count++;
         }
         return count;
     }
