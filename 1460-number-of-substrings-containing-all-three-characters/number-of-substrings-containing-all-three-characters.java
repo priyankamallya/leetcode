@@ -1,21 +1,17 @@
 class Solution {
     public int numberOfSubstrings(String s) {
-        return func(s,3)-func(s,2);
-    }
-    public int func(String s, int k){
-        int l =0; int r =0; int n = s.length(); 
-        int count=0;
-        HashMap<Character,Integer> map = new HashMap<>();
+        int n = s.length();
+        int count=0;int l=0; int r =0;
+        int a =-1; int b =-1; int c=-1; //last seen indexes
         while(r<n){
-            char c = s.charAt(r);
-            map.put(c,map.getOrDefault(c,0)+1);
-            while(map.size()>k){
-                char cL = s.charAt(l);
-                map.put(cL,map.get(cL)-1);
-                if(map.get(cL)==0) map.remove(cL);
-                l++;
+            if(s.charAt(r)=='a') a=r;
+            else if(s.charAt(r)=='b') b=r;
+            else c=r;
+            //finding the left limit of the smallest valid window ending at r
+            l = Math.min(a,Math.min(b,c));
+            if(l!=-1){
+                count+= l+1; //extending window to left
             }
-            count+= r-l+1;
             r++;
         }
         return count;
